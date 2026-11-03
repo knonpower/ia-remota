@@ -1,0 +1,20 @@
+{
+  "actualizado": "2026-11-03",
+  "estado": "Laboratorio · Producción no habilitada",
+  "corte_pruebas": {
+    "fecha": "2026-11-02", "total": 115, "pass": 112, "fail": 0, "error": 0, "skip": 3,
+    "descripcion": "Regresión de una copia aislada; no representa la certificación integral ni habilita producción."
+  },
+  "hitos": [
+    {"id": "infraestructura", "fecha": "2026-10-25", "titulo": "Infraestructura de desarrollo", "resumen": "Servidor propio, VM separada y acceso remoto de trabajo para pruebas técnicas.", "estado": "Documentado"},
+    {"id": "arquitectura", "fecha": "2026-10-28", "titulo": "Arquitectura centralizada", "resumen": "Supervisor y agentes inicialmente en el servidor; Raspberry Pi en evaluación para integración distribuida.", "estado": "Diseñada"},
+    {"id": "regresion-f2f3", "fecha": "2026-11-02", "titulo": "Regresión de laboratorio F2/F3", "resumen": "115 pruebas: 112 PASS, 0 FAIL, 0 ERROR y 3 SKIP, en el alcance específico de la copia probada.", "estado": "Verificado"},
+    {"id": "evidencia-integrada", "fecha": "2026-11-03", "titulo": "Auditorías de integración", "resumen": "Nuevas evidencias de laboratorio y verificaciones de custodia. Los resultados de distintas suites aún requieren consolidación para una certificación E2E única.", "estado": "En integración"}
+  ],
+  "pendientes": [
+    {"titulo": "Consolidar evidencia", "detalle": "Unificar hashes, resultados y cobertura sin mezclar suites distintas."},
+    {"titulo": "Aislamiento y seguridad", "detalle": "Completar verificaciones multiusuario, confinamiento y recuperación."},
+    {"titulo": "Programación supervisada", "detalle": "Delegar cambios y pruebas en repositorios desechables, con autorización humana."},
+    {"titulo": "Raspberry E2E", "detalle": "Completar comunicación autenticada y reintentos sin migrar producción."}
+  ]
+}
