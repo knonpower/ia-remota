@@ -51,3 +51,32 @@ Los hitos ya visibles en `avances.json` proceden de un resumen editorial previo;
 ## Sección Mis proyectos (V1.3)
 
 El catálogo editorial está en `data/proyectos.json`. Se mantiene separado del registro de hitos de IA Remota y se genera automáticamente en la sección `#mis-proyectos`. Para editar tarjetas, cambiar este JSON, ejecutar las pruebas y generar `public/`. No incluir accesos privados, URLs internas o afirmaciones de disponibilidad no verificadas.
+
+## Landing V1.4 — Progreso visible y enlaces de proyectos
+
+- La sección **Avance IA Remota** presenta una barra basada en ocho criterios editoriales, definidos en `data/avances.json` → `progreso.criterios`. El porcentaje se calcula automáticamente de los criterios con estado `completado`. Actualmente son 3/8 = **38 %**; **no representa el porcentaje global de ingeniería ni disponibilidad comercial**.
+- El orden de lectura ahora prioriza progreso y portafolio, luego la arquitectura y la bitácora.
+- Cada ficha del portafolio responde qué es el proyecto, su estado y cómo seguirlo. Los enlaces oficiales se registran en `data/proyectos.json` → `proyectos[].enlaces`.
+- No se inventan perfiles de redes sociales. Cuando falte confirmar el enlace se mostrará la indicación «Redes sociales: enlaces oficiales por confirmar».
+
+### Agregar enlaces a redes oficiales
+
+En el proyecto deseado, edita `enlaces` con elementos como:
+
+```json
+"enlaces": [
+  {"texto": "Instagram", "url": "https://www.instagram.com/PERFIL_OFICIAL_CONFIRMADO/"},
+  {"texto": "YouTube", "url": "https://www.youtube.com/@CANAL_OFICIAL_CONFIRMADO"}
+]
+```
+
+Las URL anteriores son **ejemplos**, no perfiles reales. Sustitúyelas por las direcciones confirmadas antes de publicar.
+
+Regenerar y verificar:
+
+```bash
+python3 -m unittest discover -s tests -v
+python3 scripts/package_site.py
+```
+
+Después de validar, subir los archivos modificados a `main`; GitHub Actions publicará el sitio cuando el repositorio esté configurado para GitHub Pages.

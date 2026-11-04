@@ -1,7 +1,8 @@
 {
-  "actualizado": "2026-11-03",
+  "actualizado": "2026-11-04",
   "estado": "Laboratorio · Producción no habilitada",
   "corte_pruebas": {
+<<<<<<< HEAD
     "fecha": "2026-11-03",
     "total": 509,
     "pass": 509,
@@ -9,6 +10,15 @@
     "error": 0,
     "skip": 0,
     "descripcion": "Regresión conjunta de 22 suites de laboratorio V11 para la correlación sintética entre revisión firmada y planificación F3. No incluye certificación de admisión física UID992/993 ni ejecución autónoma."
+=======
+    "fecha": "2026-11-02",
+    "total": 115,
+    "pass": 112,
+    "fail": 0,
+    "error": 0,
+    "skip": 3,
+    "descripcion": "Regresión de una copia aislada; no representa la certificación integral ni habilita producción."
+>>>>>>> 851f7a7 (Mejorar portafolio y progreso IA Remota V1.4)
   },
   "hitos": [
     {
@@ -38,6 +48,7 @@
       "titulo": "Auditorías de integración",
       "resumen": "Nuevas evidencias de laboratorio y verificaciones de custodia. Los resultados de distintas suites aún requieren consolidación para una certificación E2E única.",
       "estado": "En integración"
+<<<<<<< HEAD
     },
     {
       "id": "identidad-operador-v9",
@@ -59,10 +70,13 @@
       "titulo": "Correlación firmada con F3 en laboratorio",
       "resumen": "509 pruebas PASS, 0 FAIL, en 22 suites de laboratorio. Se comprobó correlación sintética, registro durable, replay, revocación y recuperación. La integración con broker físico sigue pendiente.",
       "estado": "Verificado"
+=======
+>>>>>>> 851f7a7 (Mejorar portafolio y progreso IA Remota V1.4)
     }
   ],
   "pendientes": [
     {
+<<<<<<< HEAD
       "titulo": "Integración F3 física",
       "detalle": "Certificar la correlación entre autorización de revisión firmada y admisión real del broker multiusuario en un entorno aislado."
     },
@@ -79,4 +93,60 @@
       "detalle": "Mantener ejecución autónoma y producción deshabilitadas hasta completar la validación de seguridad y la autorización correspondiente."
     }
   ]
+=======
+      "titulo": "Consolidar evidencia",
+      "detalle": "Unificar hashes, resultados y cobertura sin mezclar suites distintas."
+    },
+    {
+      "titulo": "Aislamiento y seguridad",
+      "detalle": "Completar verificaciones multiusuario, confinamiento y recuperación."
+    },
+    {
+      "titulo": "Programación supervisada",
+      "detalle": "Delegar cambios y pruebas en repositorios desechables, con autorización humana."
+    },
+    {
+      "titulo": "Raspberry E2E",
+      "detalle": "Completar comunicación autenticada y reintentos sin migrar producción."
+    }
+  ],
+  "progreso": {
+    "nombre": "Hitos de validación del laboratorio",
+    "nota": "Indicador editorial: hitos completados / 8 criterios definidos. No mide avance total de ingeniería, cobertura de pruebas ni preparación comercial.",
+    "criterios": [
+      {
+        "nombre": "Infraestructura de laboratorio aislada",
+        "estado": "completado"
+      },
+      {
+        "nombre": "Pruebas F2/F3 de admisión y recuperación",
+        "estado": "completado"
+      },
+      {
+        "nombre": "IPC real entre identidades de laboratorio",
+        "estado": "completado"
+      },
+      {
+        "nombre": "Cierre de atomicidad y correlación V11",
+        "estado": "en_curso"
+      },
+      {
+        "nombre": "Regresión consolidada de 22 suites",
+        "estado": "pendiente"
+      },
+      {
+        "nombre": "Correlación física F3 ↔ Raspberry",
+        "estado": "pendiente"
+      },
+      {
+        "nombre": "Ejecución de programación supervisada extremo a extremo",
+        "estado": "pendiente"
+      },
+      {
+        "nombre": "Auditoría de seguridad y autorización para despliegue",
+        "estado": "pendiente"
+      }
+    ]
+  }
+>>>>>>> 851f7a7 (Mejorar portafolio y progreso IA Remota V1.4)
 }

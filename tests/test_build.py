@@ -19,8 +19,13 @@ class BuildTests(unittest.TestCase):
     def test_existing_data_validates(self):
         data=json.loads((ROOT/'data/avances.json').read_text())
         build.validate(data)
+<<<<<<< HEAD
         sections=build.render_sections(data)
         self.assertIn(str(data['corte_pruebas']['pass']),sections)
+=======
+        sections=''.join(build.render_sections(data))
+        self.assertIn('112',sections)
+>>>>>>> 851f7a7 (Mejorar portafolio y progreso IA Remota V1.4)
         self.assertIn('NO_GO',sections)
     def test_failed_totals_rejected(self):
         data=json.loads((ROOT/'data/avances.json').read_text())
@@ -29,7 +34,7 @@ class BuildTests(unittest.TestCase):
     def test_html_escaped(self):
         data=json.loads((ROOT/'data/avances.json').read_text())
         data['hitos'][0]['titulo']='<script>alert(1)</script>'
-        html=build.render_sections(data)
+        html=''.join(build.render_sections(data))
         self.assertNotIn('<script>',html)
         self.assertIn('&lt;script&gt;',html)
     def test_notion_requires_two_gates(self):
@@ -87,3 +92,20 @@ class PortfolioTests(unittest.TestCase):
         data=json.loads((ROOT/'data/proyectos.json').read_text(encoding='utf-8'))
         data['proyectos'].append(dict(data['proyectos'][0]))
         with self.assertRaises(AssertionError):build.render_projects(data)
+
+class ProgressTests(unittest.TestCase):
+    def test_progress_matches_milestones(self):
+        data=json.loads((ROOT/'data/avances.json').read_text(encoding='utf-8'))
+        markup=''.join(build.render_sections(data))
+        self.assertIn('38%', markup)
+        self.assertIn('3 de 8 hitos', markup)
+        self.assertIn('role="progressbar"', markup)
+    def test_invalid_milestone_status_rejected(self):
+        data=json.loads((ROOT/'data/avances.json').read_text(encoding='utf-8'))
+        data['progreso']['criterios'][0]['estado']='inventado'
+        with self.assertRaises(AssertionError): build.validate(data)
+    def test_only_confirmed_links(self):
+        data=json.loads((ROOT/'data/proyectos.json').read_text(encoding='utf-8'))
+        markup=build.render_projects(data)
+        self.assertIn('https://github.com/knonpower/ia-remota',markup)
+        self.assertIn('Redes sociales: enlaces oficiales por confirmar',markup)
