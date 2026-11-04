@@ -1,4 +1,4 @@
-# Knonpower IA Remota — Landing V1.2
+# Knonpower IA Remota — Landing V1.3
 
 Web estática desacoplada de infraestructura privada, con bitácora controlada. No hospedar sobre HP ProLiant, ESXi, NAS ni Raspberry sin auditoría independiente.
 
@@ -10,7 +10,7 @@ python3 scripts/package_site.py
 python3 -m http.server 8080 --directory public
 ```
 
-Abrir `http://localhost:8080`. No requiere paquetes pip o npm. `template.html` + `data/avances.json` generan `index.html`; únicamente `public/` se publica.
+Abrir `http://localhost:8080`. No requiere paquetes pip o npm. `template.html` + `data/avances.json` + `data/proyectos.json` generan `index.html`; únicamente `public/` se publica.
 
 ## Fuente editorial de Notion
 
@@ -47,3 +47,7 @@ Los hitos ya visibles en `avances.json` proceden de un resumen editorial previo;
 - No mostrar direcciones LAN, rutas privadas, credenciales, logs, certificados ni firmas.
 - No sumar conteos de regresiones diferentes, ni declarar laboratorio como producción.
 - No enlazar a páginas Notion internas: si se desea documentación pública, crear una página separada y autorizar explícitamente su publicación en Notion.
+
+## Sección Mis proyectos (V1.3)
+
+El catálogo editorial está en `data/proyectos.json`. Se mantiene separado del registro de hitos de IA Remota y se genera automáticamente en la sección `#mis-proyectos`. Para editar tarjetas, cambiar este JSON, ejecutar las pruebas y generar `public/`. No incluir accesos privados, URLs internas o afirmaciones de disponibilidad no verificadas.

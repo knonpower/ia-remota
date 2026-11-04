@@ -69,3 +69,21 @@ class TestNotionEditorial(unittest.TestCase):
             'Revision editorial':{'select':{'name':'Aprobado'}},
             'Publicar web':{'checkbox':True}}}
         with self.assertRaises(ValueError): candidate(row)
+
+class PortfolioTests(unittest.TestCase):
+    def test_project_section_renders(self):
+        data=json.loads((ROOT/'data/proyectos.json').read_text(encoding='utf-8'))
+        markup=build.render_projects(data)
+        self.assertIn('id="mis-proyectos"',markup)
+        for name in ('Super Magic Box','FERO','JoséLuisMetales','Hidrobee','IA Remota'):
+            self.assertIn(name,markup)
+    def test_portfolio_escapes_markup(self):
+        data=json.loads((ROOT/'data/proyectos.json').read_text(encoding='utf-8'))
+        data['proyectos'][0]['descripcion']='<script>alert(1)</script>'
+        markup=build.render_projects(data)
+        self.assertNotIn('<script>',markup)
+        self.assertIn('&lt;script&gt;',markup)
+    def test_duplicate_project_rejected(self):
+        data=json.loads((ROOT/'data/proyectos.json').read_text(encoding='utf-8'))
+        data['proyectos'].append(dict(data['proyectos'][0]))
+        with self.assertRaises(AssertionError):build.render_projects(data)

@@ -1,0 +1,60 @@
+{
+  "actualizado": "2026-11-03",
+  "proyectos": [
+    {
+      "id": "ia-remota",
+      "icono": "🧠",
+      "nombre": "Knonpower IA Remota",
+      "categoria": "Inteligencia artificial · Software",
+      "estado": "Laboratorio",
+      "descripcion": "Plataforma de supervisión y coordinación de agentes especializados para delegar tareas con autorización, trazabilidad y recuperación.",
+      "detalle": "Integración y ensayos de seguridad en curso. Sin habilitación de ejecución autónoma productiva."
+    },
+    {
+      "id": "super-magic-box",
+      "icono": "🌱",
+      "nombre": "Super Magic Box",
+      "categoria": "Electrónica · Automatización",
+      "estado": "Desarrollo y validación",
+      "descripcion": "Sistema de automatización ambiental para espacios indoor: sensores, iluminación, ventilación, actuadores y monitoreo remoto.",
+      "detalle": "Evolución del control, dashboard y análisis de condiciones ambientales."
+    },
+    {
+      "id": "fero",
+      "icono": "🔥",
+      "nombre": "FERO",
+      "categoria": "Producto · Ingeniería térmica",
+      "estado": "Desarrollo de producto",
+      "descripcion": "Diseño y desarrollo de soluciones de calefacción a pellet, con foco en ingeniería, fabricación y mejora de producto.",
+      "detalle": "Marca de estufas a pellet; sus avances comerciales y técnicos se comunican por separado."
+    },
+    {
+      "id": "academia-fero",
+      "icono": "🎓",
+      "nombre": "Academia FERO",
+      "categoria": "Formación técnica",
+      "estado": "Planificación",
+      "descripcion": "Línea de formación vinculada al conocimiento técnico, operación y desarrollo de soluciones FERO.",
+      "detalle": "Iniciativa formativa en planificación; no se anuncian cursos disponibles sin confirmación."
+    },
+    {
+      "id": "hidrobee",
+      "icono": "🍯",
+      "nombre": "Hidrobee · Fermentosbee",
+      "categoria": "Fermentación · Producto",
+      "estado": "Experimentación",
+      "descripcion": "Desarrollo de bebidas fermentadas, recetas y procesos productivos, incluyendo hidromiel y otras fermentaciones.",
+      "detalle": "Investigación, pruebas y formulación para avanzar hacia productos consistentes."
+    },
+    {
+      "id": "joseluismetales",
+      "icono": "⚡",
+      "nombre": "JoséLuisMetales",
+      "categoria": "Soldadura · Educación",
+      "estado": "Contenido y formación",
+      "descripcion": "Proyecto de enseñanza de soldadura SMAW y fabricación metálica, con cursos y contenido técnico para aprender haciendo.",
+      "detalle": "La segunda parte del curso sigue en desarrollo."
+    }
+  ],
+  "exploracion": "También exploro nuevos proyectos de sensores, electrónica aplicada y sistemas de seguridad autónomos. Los comparto cuando existan prototipos o evidencias suficientes."
+}

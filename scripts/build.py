@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / 'data' / 'avances.json'
+PROJECTS = ROOT / 'data' / 'proyectos.json'
 TEMPLATE = ROOT / 'template.html'
 OUTPUT = ROOT / 'index.html'
 
@@ -55,12 +56,29 @@ def render_sections(data):
     roadmap='<section id="futuro"><div class="wrap"><div class="kicker">05 / Siguientes hitos</div><h2 class="section-title">Lo que todavía falta construir.</h2><div class="roadmap">'+''.join(steps)+'</div></div></section>'
     return '\n'.join((metrics,timeline,roadmap))
 
+def render_projects(data):
+    assert isinstance(data.get('proyectos'), list) and data['proyectos'], 'Sin proyectos'
+    ids = set()
+    cards = []
+    for item in data['proyectos']:
+        for key in ('id', 'icono', 'nombre', 'categoria', 'estado', 'descripcion', 'detalle'):
+            assert isinstance(item.get(key), str) and item[key].strip(), f'Campo de proyecto inválido: {key}'
+        assert item['id'] not in ids, 'Proyecto duplicado'
+        ids.add(item['id'])
+        cards.append(f'''<article class="card portfolio-card" id="proyecto-{esc(item['id'])}"><div class="project-top"><span class="project-symbol" aria-hidden="true">{esc(item['icono'])}</span></div><div class="project-category">{esc(item['categoria'])}</div><h3>{esc(item['nombre'])}</h3><p>{esc(item['descripcion'])}</p><p class="project-detail">{esc(item['detalle'])}</p><div class="project-state">● {esc(item['estado'])}</div></article>''')
+    return ('<section id="mis-proyectos"><div class="wrap"><div class="kicker">06 / Ecosistema Knonpower</div>'
+            '<h2 class="section-title">Ideas que se convierten en proyectos reales.</h2>'
+            '<p class="section-intro portfolio-lead">IA Remota es una parte de lo que construyo. También desarrollo productos físicos, automatización, formación técnica y procesos productivos. Cada iniciativa tiene su propio ritmo y etapa.</p>'
+            '<div class="cards">'+''.join(cards)+'</div><p class="portfolio-note">'+esc(data['exploracion'])+'</p></div></section>')
+
 def main():
     data=json.loads(DATA.read_text(encoding='utf-8'))
+    projects=json.loads(PROJECTS.read_text(encoding='utf-8'))
     validate(data)
     page=TEMPLATE.read_text(encoding='utf-8')
     assert page.count('{{SECCIONES_ACTUALIZABLES}}') == 1
-    page=page.replace('{{SECCIONES_ACTUALIZABLES}}',render_sections(data)).replace('{{FECHA_ACTUALIZACION}}',esc(display_date(data['actualizado'])))
+    assert page.count('{{SECCION_PROYECTOS}}') == 1
+    page=page.replace('{{SECCIONES_ACTUALIZABLES}}',render_sections(data)).replace('{{SECCION_PROYECTOS}}',render_projects(projects)).replace('{{FECHA_ACTUALIZACION}}',esc(display_date(data['actualizado'])))
     assert '{{' not in page, 'Placeholder sin sustituir'
     OUTPUT.write_text(page,encoding='utf-8')
     print(f'BUILD_OK={OUTPUT} HITOS={len(data["hitos"])}')
