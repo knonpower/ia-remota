@@ -1,6 +1,8 @@
 name: Publicar landing aprobada
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 13 * * *' # Verificación diaria UTC; la hora local cambia con horario de verano
   push:
     branches: [main]
 permissions:
