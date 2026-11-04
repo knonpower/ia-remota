@@ -20,7 +20,7 @@ class BuildTests(unittest.TestCase):
         data=json.loads((ROOT/'data/avances.json').read_text())
         build.validate(data)
         sections=build.render_sections(data)
-        self.assertIn('112',sections)
+        self.assertIn(str(data['corte_pruebas']['pass']),sections)
         self.assertIn('NO_GO',sections)
     def test_failed_totals_rejected(self):
         data=json.loads((ROOT/'data/avances.json').read_text())
