@@ -2,19 +2,81 @@
   "actualizado": "2026-11-03",
   "estado": "Laboratorio · Producción no habilitada",
   "corte_pruebas": {
-    "fecha": "2026-11-02", "total": 115, "pass": 112, "fail": 0, "error": 0, "skip": 3,
-    "descripcion": "Regresión de una copia aislada; no representa la certificación integral ni habilita producción."
+    "fecha": "2026-11-03",
+    "total": 509,
+    "pass": 509,
+    "fail": 0,
+    "error": 0,
+    "skip": 0,
+    "descripcion": "Regresión conjunta de 22 suites de laboratorio V11 para la correlación sintética entre revisión firmada y planificación F3. No incluye certificación de admisión física UID992/993 ni ejecución autónoma."
   },
   "hitos": [
-    {"id": "infraestructura", "fecha": "2026-10-25", "titulo": "Infraestructura de desarrollo", "resumen": "Servidor propio, VM separada y acceso remoto de trabajo para pruebas técnicas.", "estado": "Documentado"},
-    {"id": "arquitectura", "fecha": "2026-10-28", "titulo": "Arquitectura centralizada", "resumen": "Supervisor y agentes inicialmente en el servidor; Raspberry Pi en evaluación para integración distribuida.", "estado": "Diseñada"},
-    {"id": "regresion-f2f3", "fecha": "2026-11-02", "titulo": "Regresión de laboratorio F2/F3", "resumen": "115 pruebas: 112 PASS, 0 FAIL, 0 ERROR y 3 SKIP, en el alcance específico de la copia probada.", "estado": "Verificado"},
-    {"id": "evidencia-integrada", "fecha": "2026-11-03", "titulo": "Auditorías de integración", "resumen": "Nuevas evidencias de laboratorio y verificaciones de custodia. Los resultados de distintas suites aún requieren consolidación para una certificación E2E única.", "estado": "En integración"}
+    {
+      "id": "infraestructura",
+      "fecha": "2026-10-25",
+      "titulo": "Infraestructura de desarrollo",
+      "resumen": "Servidor propio, VM separada y acceso remoto de trabajo para pruebas técnicas.",
+      "estado": "Documentado"
+    },
+    {
+      "id": "arquitectura",
+      "fecha": "2026-10-28",
+      "titulo": "Arquitectura centralizada",
+      "resumen": "Supervisor y agentes inicialmente en el servidor; Raspberry Pi en evaluación para integración distribuida.",
+      "estado": "Diseñada"
+    },
+    {
+      "id": "regresion-f2f3",
+      "fecha": "2026-11-02",
+      "titulo": "Regresión de laboratorio F2/F3",
+      "resumen": "115 pruebas: 112 PASS, 0 FAIL, 0 ERROR y 3 SKIP, en el alcance específico de la copia probada.",
+      "estado": "Verificado"
+    },
+    {
+      "id": "evidencia-integrada",
+      "fecha": "2026-11-03",
+      "titulo": "Auditorías de integración",
+      "resumen": "Nuevas evidencias de laboratorio y verificaciones de custodia. Los resultados de distintas suites aún requieren consolidación para una certificación E2E única.",
+      "estado": "En integración"
+    },
+    {
+      "id": "identidad-operador-v9",
+      "fecha": "2026-11-03",
+      "titulo": "Identidad del operador verificada",
+      "resumen": "Se validó una inscripción criptográfica de identidad de operador mediante firma Ed25519. La inscripción no habilita ejecución de código.",
+      "estado": "Verificado"
+    },
+    {
+      "id": "autorizacion-tarea-v10",
+      "fecha": "2026-11-03",
+      "titulo": "Autorización supervisada por tarea",
+      "resumen": "Una revisión de tarea sintética fue firmada y registrada; su vigencia expiró conforme a la política de caducidad. No se ejecutó ningún trabajo.",
+      "estado": "Verificado"
+    },
+    {
+      "id": "correlacion-f3-v11",
+      "fecha": "2026-11-03",
+      "titulo": "Correlación firmada con F3 en laboratorio",
+      "resumen": "509 pruebas PASS, 0 FAIL, en 22 suites de laboratorio. Se comprobó correlación sintética, registro durable, replay, revocación y recuperación. La integración con broker físico sigue pendiente.",
+      "estado": "Verificado"
+    }
   ],
   "pendientes": [
-    {"titulo": "Consolidar evidencia", "detalle": "Unificar hashes, resultados y cobertura sin mezclar suites distintas."},
-    {"titulo": "Aislamiento y seguridad", "detalle": "Completar verificaciones multiusuario, confinamiento y recuperación."},
-    {"titulo": "Programación supervisada", "detalle": "Delegar cambios y pruebas en repositorios desechables, con autorización humana."},
-    {"titulo": "Raspberry E2E", "detalle": "Completar comunicación autenticada y reintentos sin migrar producción."}
+    {
+      "titulo": "Integración F3 física",
+      "detalle": "Certificar la correlación entre autorización de revisión firmada y admisión real del broker multiusuario en un entorno aislado."
+    },
+    {
+      "titulo": "Resistencia ante fallos",
+      "detalle": "Verificar reintentos, pérdida de confirmación, concurrencia, recuperación después de reinicio y revocación con evidencias reales de laboratorio."
+    },
+    {
+      "titulo": "Agentes programadores supervisados",
+      "detalle": "Ensayar propuestas de código en fuentes sintéticas y repositorios aislados, siempre con revisión y permisos por operación."
+    },
+    {
+      "titulo": "Certificación antes de producción",
+      "detalle": "Mantener ejecución autónoma y producción deshabilitadas hasta completar la validación de seguridad y la autorización correspondiente."
+    }
   ]
 }
