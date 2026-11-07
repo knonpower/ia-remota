@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-05",
+  "actualizado": "2026-11-06",
   "estado": "Laboratorio · Producción no habilitada",
   "corte_pruebas": {
     "fecha": "2026-11-05",
@@ -66,6 +66,13 @@
       "titulo": "Nueva regresión integral de laboratorio V160",
       "resumen": "Una regresión de laboratorio completó 783 pruebas aprobadas y 0 fallidas. Se verificaron controles de seguridad y trazabilidad en un entorno aislado. La certificación física y la atomicidad distribuida siguen pendientes; la ejecución autónoma y producción continúan deshabilitadas.",
       "estado": "Verificado"
+    },
+    {
+      "id": "codex-g2-contrato-offline-v046",
+      "fecha": "2026-11-06",
+      "titulo": "Contrato de coordinación de tareas de programación validado en laboratorio",
+      "resumen": "Se verificó un contrato sintético de tareas, confirmaciones y resultados con 17 pruebas automatizadas aprobadas y 7 comprobaciones negativas independientes. La validación es exclusivamente offline: no demuestra ejecución remota, aislamiento físico ni autorización para programar de forma autónoma.",
+      "estado": "Verificado en laboratorio"
     }
   ],
   "pendientes": [
